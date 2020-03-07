@@ -3,6 +3,7 @@
 DWORD64 bSekiroDebugMenuPrint = 0;
 DWORD64 bSekiroDebugGUIPrint = 0;
 
+extern CSekiroDebug* SekiroDebug;
 extern SSekiroDebug* SekiroDebugStruct;
 
 extern SDrawStruct DrawStruct[300];
@@ -12,11 +13,14 @@ BYTE pNopBytes[5] = { 0x90, 0x90, 0x90, 0x90, 0x90, };
 BYTE pRetBytes[1] = { 0xC3 };
 BYTE pXorRaxBytes[5] = { 0x48, 0x31, 0xC0, 0x90, 0x90 };
 BYTE pSetAlBytes[5] = { 0xB0, 0x01, 0x90, 0x90, 0x90 };
+BYTE pSetR8lBytes[5] = { 0x41, 0xB0, 0x01 };
 DWORD dHMAVCheck1 = 0x00CE9840;
 DWORD dHMAVCheck2 = 0x036973AA;
 
 BYTE pFreeCamBytes1[5] = { 0xE8, 0xBD, 0xB0, 0xD0, 01 };
 BYTE pFreeCamBytes2[35] = { 0x44, 0x88, 0xA6, 0x98, 0x00, 0x00, 0x00, 0x8B, 0x83, 0xE0, 0x00, 0x00, 0x00, 0xFF, 0xC8, 0x83, 0xF8, 0x01, 0x0F, 0x87, 0x35, 0x01, 0x00, 0x00, 0x44, 0x88, 0xBE, 0x98, 0x00, 0x00, 0x00 };
+
+
 
 VOID CSekiroDebug::Start() {
 	Run();
@@ -35,13 +39,14 @@ VOID CSekiroDebug::Run() {
 
 	TweakMem(0x14096B650, 2, pSetAlBytes); //GAME > INS
 	TweakMem(0x14096B640, 2, pSetAlBytes); //GAME > Event
+	TweakMem(0x14096BAFB, 3, pSetR8lBytes); //Enable grapple debug
 
 	while (SekiroDebugStruct->dIsActive) {
 		SetUnhandledExceptionFilter(UHFilter);
 		DrawStrings(0);
-		OverlayCode();
+		UpdateOverlayWindow();
 		ClearStrings();
-		Sleep(100);
+		Sleep(20);
 	};
 
 	return;
@@ -79,9 +84,9 @@ VOID fSekiroDebugMenuPrint(SDebugPrint* D) {
 	SDebugPrint S = SDebugPrint();
 
 	if (!D) return;
-	if (!D->fX || !D->fY || !D->wcText[0]) return;
+	if (D->fX < 1.00f || D->fY < 1.00f || !D->wcText[0]) return;
 
-	memcpy(S.wcText, D->wcText, 150);
+	if (SekiroDebug) SekiroDebug->MinimiseShelvesOptions(&fFontSize, (DWORD)D->fY);
 
 	for (int i = 0; i < MaxPrint; i++) {
 		if (!DrawStruct[i].dIsActive) {
@@ -215,6 +220,51 @@ VOID CSekiroDebug::ClearStrings() {
 
 	for (int i = 0; i < MaxPrint; i++) {
 		DrawStruct[i].dIsActive = 0;
+	};
+
+	return;
+};
+
+
+VOID CSekiroDebug::UpdateOverlayWindow() {
+	OverlayCode();
+	return;
+};
+
+VOID CSekiroDebug::MinimiseShelvesOptions(FLOAT* pFontSize, DWORD dY) {
+
+	//I've had to manually do this bit to look slick
+
+	switch (dY) {
+	case(80): {
+		*pFontSize = 18.00f;
+		return;
+	};
+	case(67): {
+		*pFontSize = 16.00f;
+		return;
+	};
+	case(56): {
+		*pFontSize = 14.00f;
+		return;
+	};
+	case(48): {
+		*pFontSize = 12.00f;
+		return;
+	};
+	case(42): {
+		*pFontSize = 10.00f;
+		return;
+	};
+	case(36): {
+		*pFontSize = 8.00f;
+		return;
+	};
+	case(32): {
+		*pFontSize = 7.00f;
+		return;
+	};
+	default: return;
 	};
 
 	return;

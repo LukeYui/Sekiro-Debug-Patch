@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Sekiro Debug">
       <UniqueIdentifier>{90611bcc-e5d0-4af4-9fa3-10de4a450dec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Overlay Window">
+      <UniqueIdentifier>{34b7b29c-812d-4b02-ad7c-156ad96b9962}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="d3d11.cpp">
@@ -120,11 +123,11 @@
     <ClCompile Include="SekiroDebug.cpp">
       <Filter>Source Files\Sekiro Debug</Filter>
     </ClCompile>
-    <ClCompile Include="OverlayWindow.cpp">
-      <Filter>Source Files\Sekiro Debug</Filter>
-    </ClCompile>
     <ClCompile Include="XinHelper.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OverlayWindow.cpp">
+      <Filter>Source Files\Overlay Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -216,11 +219,11 @@
     <ClInclude Include="SekiroDebug.h">
       <Filter>Source Files\Sekiro Debug</Filter>
     </ClInclude>
-    <ClInclude Include="OverlayWindow.h">
-      <Filter>Source Files\Sekiro Debug</Filter>
-    </ClInclude>
     <ClInclude Include="XinHelper.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlayWindow.h">
+      <Filter>Source Files\Overlay Window</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

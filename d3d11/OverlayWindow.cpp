@@ -1,4 +1,5 @@
 #include "OverlayWindow.h"
+#include "SekiroDebug.h"
 
 WCHAR szTitle[100];
 WCHAR szWindowClass[100];
@@ -126,78 +127,6 @@ void CALLBACK OverlayCode()
 		Sleep(100);
 		ClearOverlay(overHwnd);
 	}
-
-	/*
-	//Check Hotkeys
-	if (GetAsyncKeyState(VK_F9) & 1)
-		OverlayInput(1);
-
-	if (GetAsyncKeyState(VK_F10) & 1)
-		OverlayInput(2);
-
-	//Menu Hotkeys
-	if (displayMenu)
-	{
-		//Input Handler
-		if (GetAsyncKeyState(VK_UP) & 1)
-			OverlayInput(0xF2);
-		else if (GetAsyncKeyState(VK_DOWN) & 1)
-			OverlayInput(0xF1);
-
-		//Check Protection State
-		if (GetAsyncKeyState(VK_DELETE) & 1)
-		{
-			//Set Enabled State To Opposite
-			scriptStates[menuIndex] = !scriptStates[menuIndex];
-
-			//Enable/Disable Hooks Based On Menu State
-			switch (menuIndex)
-			{
-			case 0:
-				if (scriptStates[menuIndex])
-				{
-					//Enable Hook
-				}
-				else
-				{
-					//Disable Hook
-				}
-
-				break;
-			case 1:
-
-				break;
-			case 2:
-
-				break;
-			}
-
-			updateOverlay = TRUE;
-		}
-	}
-
-	//Update Overlay If Necessary
-	if (updateOverlay)
-	{
-		updateOverlay = FALSE;
-
-		ClearOverlay(overHwnd);
-
-		if (overlayState)
-		{
-			DrawString(15, 15, 10, 15, windowDC, RGB(0, 255, 0), "Overlay Running!");
-			//ShowWindow(overHwnd, 5);
-
-			if (displayMenu)
-				DrawMenu(scriptMenu, "Script Menu:", 3, 500, 50);
-		}
-		else
-		{
-			DrawString(15, 15, 10, 15, windowDC, RGB(255, 0, 0), "Overlay Hidden!");
-			//ShowWindow(overHwnd, 0);
-		}
-	}
-	*/
 }
 
 void OverlayWindowPos(HWND overlayWindow)
@@ -209,13 +138,14 @@ void OverlayWindowPos(HWND overlayWindow)
 		return;
 
 	RECT windowLocation;
-
+	
 	GetWindowRect(procToOverlay, &windowLocation);
 
 	int width = windowLocation.right - windowLocation.left;
 	int height = windowLocation.bottom - windowLocation.top;
 
-	SetWindowPos(overlayWindow, HWND_TOPMOST, windowLocation.left, windowLocation.top, width, height, 0x200);
+	if (GetForegroundWindow() == procToOverlay) SetWindowPos(overlayWindow, HWND_TOPMOST, windowLocation.left, windowLocation.top, width, height, 0x200);
+	else SetWindowPos(overlayWindow, procToOverlay, windowLocation.left, windowLocation.top, width, height, 0x200);
 
 	return;
 }
