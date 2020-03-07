@@ -1,5 +1,6 @@
 #pragma once
 #include "d3d11.h"
+#include "OverlayWindow.h"
 
 #define HookSite_Menu 0x1424F9D6D
 

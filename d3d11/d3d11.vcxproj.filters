@@ -120,6 +120,12 @@
     <ClCompile Include="SekiroDebug.cpp">
       <Filter>Source Files\Sekiro Debug</Filter>
     </ClCompile>
+    <ClCompile Include="OverlayWindow.cpp">
+      <Filter>Source Files\Sekiro Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="XinHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="d3d11.def">
@@ -209,6 +215,12 @@
     </ClInclude>
     <ClInclude Include="SekiroDebug.h">
       <Filter>Source Files\Sekiro Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlayWindow.h">
+      <Filter>Source Files\Sekiro Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="XinHelper.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

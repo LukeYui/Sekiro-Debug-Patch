@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include "SekiroDebug.h"
+#include "OverlayWindow.h"
 #include "d3d11.h"
 
 typedef HRESULT(__stdcall *D3D11PresentHook) (IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
@@ -103,7 +104,7 @@ HRESULT __stdcall hookD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval
 			RenderTargetTexture->Release();
 		}
 
-		wdc = GetDC(FindWindowA(0, "Sekiroo"));
+		wdc = GetDC(FindWindowA(0, "Sekiro"));
 
 		firstTime = false;
 	}
@@ -293,6 +294,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
 		DisableThreadLibraryCalls(hinstDLL);
 
 		CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)Begind3d11Hook, NULL, NULL, NULL);
+		CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)CreateOverlay, NULL, NULL, NULL);
 
 		break;
 

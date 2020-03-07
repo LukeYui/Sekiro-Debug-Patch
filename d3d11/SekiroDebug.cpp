@@ -39,8 +39,9 @@ VOID CSekiroDebug::Run() {
 	while (SekiroDebugStruct->dIsActive) {
 		SetUnhandledExceptionFilter(UHFilter);
 		DrawStrings(0);
+		OverlayCode();
 		ClearStrings();
-		Sleep(5);
+		Sleep(100);
 	};
 
 	return;
@@ -202,7 +203,8 @@ VOID CSekiroDebug::DrawStrings(IFW1FontWrapper* pFontWrapper) {
 
 	for (int i = 0; i < MaxPrint; i++) {
 		if (DrawStruct[i].dIsActive) {
-			TextOutW(wdc, (DWORD)DrawStruct[i].sDebugPrint.fX, (DWORD)DrawStruct[i].sDebugPrint.fY, DrawStruct[i].sDebugPrint.wcText, (int)wcslen(DrawStruct[i].sDebugPrint.wcText));
+			//TextOutW(wdc, (DWORD)DrawStruct[i].sDebugPrint.fX, (DWORD)DrawStruct[i].sDebugPrint.fY, DrawStruct[i].sDebugPrint.wcText, (int)wcslen(DrawStruct[i].sDebugPrint.wcText));
+			TextOutW(windowDC, (DWORD)DrawStruct[i].sDebugPrint.fX, (DWORD)DrawStruct[i].sDebugPrint.fY, DrawStruct[i].sDebugPrint.wcText, (int)wcslen(DrawStruct[i].sDebugPrint.wcText));
 		};
 	};
 
