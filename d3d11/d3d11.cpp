@@ -124,8 +124,6 @@ HRESULT __stdcall hookD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval
 		SekiroDebugStruct->pFontWrapper = pFontWrapper;
 	};
 
-	//SekiroDebug->DrawStrings(pFontWrapper);
-
 	return phookD3D11Present(pSwapChain, SyncInterval, Flags);
 
 };
@@ -233,7 +231,8 @@ DWORD BeginMainHook() {
 	VirtualProtect(phookD3D11Present, 2, PAGE_EXECUTE_READWRITE, &dwOld);
 
 	while (true) {
-		Sleep(10);
+		SekiroDebug->UpdateOverlayWindow(true);
+		Sleep(1000);
 	}
 
 	if (pDevice)

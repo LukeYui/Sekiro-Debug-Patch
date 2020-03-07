@@ -44,7 +44,7 @@ VOID CSekiroDebug::Run() {
 	while (SekiroDebugStruct->dIsActive) {
 		SetUnhandledExceptionFilter(UHFilter);
 		DrawStrings(0);
-		UpdateOverlayWindow();
+		UpdateOverlayWindow(false);
 		ClearStrings();
 		Sleep(20);
 	};
@@ -226,8 +226,8 @@ VOID CSekiroDebug::ClearStrings() {
 };
 
 
-VOID CSekiroDebug::UpdateOverlayWindow() {
-	OverlayCode();
+VOID CSekiroDebug::UpdateOverlayWindow(int iIsAutoUpdate) {
+	OverlayCode(iIsAutoUpdate);
 	return;
 };
 

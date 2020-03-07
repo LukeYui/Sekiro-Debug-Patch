@@ -31,7 +31,7 @@ HWND InitInstance(HINSTANCE, int);
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 //Function To Modify Overlay
-void CALLBACK OverlayCode();	//Main Overlay Code (Check Hotkeys & Modify Display)
+void CALLBACK OverlayCode(int iIsAutoRefresh);	//Main Overlay Code (Check Hotkeys & Modify Display)
 
 void DrawString(int x, int y, int textW, int textH, HDC HDC_Desktop, COLORREF color, const char* text);		//Function To Draw Text
 

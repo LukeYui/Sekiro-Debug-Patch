@@ -19,7 +19,7 @@ public:
 	virtual BOOL CheckPackedBytes(DWORD64 qAddress, WORD wBytes);
 	virtual VOID DrawStrings(IFW1FontWrapper* pFontWrapper);
 	virtual VOID ClearStrings();
-	virtual VOID UpdateOverlayWindow();
+	virtual VOID UpdateOverlayWindow(int iIsAutoUpdate);
 	virtual VOID MinimiseShelvesOptions(FLOAT* pFontSize, DWORD dY);
 };
 

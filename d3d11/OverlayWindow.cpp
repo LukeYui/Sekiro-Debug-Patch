@@ -20,12 +20,19 @@ _XINPUT_KEYSTROKE gamePadKeyData;
 //Defines For Used Gamepad Conditions
 #define GP_A_Down 22528 + XINPUT_KEYSTROKE_KEYDOWN
 #define GP_B_Down 22529 + XINPUT_KEYSTROKE_KEYDOWN
+#define GP_X_DOWN 22530 + XINPUT_KEYSTROKE_KEYDOWN
+#define GP_Y_DOWN 22531 + XINPUT_KEYSTROKE_KEYDOWN
 #define GP_Select_Down 22549 + XINPUT_KEYSTROKE_KEYDOWN
 #define GP_Dpad_Up_Down 22544 + XINPUT_KEYSTROKE_KEYDOWN
 #define GP_Dpad_Down_Down 22545 + XINPUT_KEYSTROKE_KEYDOWN
 #define GP_Dpad_Left_Down 22546 + XINPUT_KEYSTROKE_KEYDOWN
 #define GP_Dpad_Right_Down 22547 + XINPUT_KEYSTROKE_KEYDOWN
 
+#define GP_A_Repeat 22528 + XINPUT_KEYSTROKE_REPEAT
+#define GP_B_Repeat 22529 + XINPUT_KEYSTROKE_REPEAT
+#define GP_X_Repeat 22530 + XINPUT_KEYSTROKE_REPEAT
+#define GP_Y_Repeat 22531 + XINPUT_KEYSTROKE_REPEAT
+#define GP_Select_Repeat 22549 + XINPUT_KEYSTROKE_REPEAT
 #define GP_Dpad_Up_Repeat 22544 + XINPUT_KEYSTROKE_REPEAT
 #define GP_Dpad_Down_Repeat 22545 + XINPUT_KEYSTROKE_REPEAT
 #define GP_Dpad_Left_Repeat 22546 + XINPUT_KEYSTROKE_REPEAT
@@ -94,10 +101,15 @@ DWORD APIENTRY CreateOverlay(HINSTANCE hInstance)
 	return TRUE;
 }
 
-void CALLBACK OverlayCode()
+void CALLBACK OverlayCode(int iIsAutoRefresh)
 {
 	//Overlay Position Update
 	OverlayWindowPos(overHwnd);
+
+	if (iIsAutoRefresh) {
+		ClearOverlay(overHwnd);
+		return;
+	};
 
 	if (checkControllerState())
 	{
@@ -109,7 +121,12 @@ void CALLBACK OverlayCode()
 		{
 		case GP_A_Down:
 		case GP_B_Down:
+		case GP_X_DOWN:
+		case GP_Y_DOWN:
+		case GP_X_Repeat:
+		case GP_Y_Repeat:
 		case GP_Select_Down:
+		case GP_Select_Repeat:
 		case GP_Dpad_Up_Down:
 		case GP_Dpad_Down_Down:
 		case GP_Dpad_Left_Down:
@@ -144,8 +161,11 @@ void OverlayWindowPos(HWND overlayWindow)
 	int width = windowLocation.right - windowLocation.left;
 	int height = windowLocation.bottom - windowLocation.top;
 
-	if (GetForegroundWindow() == procToOverlay) SetWindowPos(overlayWindow, HWND_TOPMOST, windowLocation.left, windowLocation.top, width, height, 0x200);
-	else SetWindowPos(overlayWindow, procToOverlay, windowLocation.left, windowLocation.top, width, height, 0x200);
+	if (GetForegroundWindow() == procToOverlay) {
+		ShowWindow(overlayWindow, SW_SHOW);
+		SetWindowPos(overlayWindow, HWND_TOPMOST, windowLocation.left, windowLocation.top, width, height, 0x200);
+	}
+	else ShowWindow(overlayWindow, SW_HIDE);
 
 	return;
 }
