@@ -1,0 +1,14 @@
+LIBRARY d3d11.dll
+
+EXPORTS
+
+	D3D11On12CreateDevice = _D3D11On12CreateDevice @ 1
+	D3D11CoreRegisterLayers = _D3D11CoreRegisterLayers @ 2
+	D3D11CreateDevice = _D3D11CreateDevice @ 3
+	D3D11CreateDeviceAndSwapChain = _D3D11CreateDeviceAndSwapChain @ 4
+	EnableFeatureLevelUpgrade = _EnableFeatureLevelUpgrade @ 5
+	D3D11CoreCreateDevice = _D3D11CoreCreateDevice @ 6
+	D3D11CoreCreateLayeredDevice = _D3D11CoreCreateLayeredDevice @ 7
+	D3D11CoreGetLayeredDeviceSize = _D3D11CoreGetLayeredDeviceSize @ 8
+
+	
