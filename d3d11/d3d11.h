@@ -6,6 +6,7 @@
 
 #include "MinHook/include/MinHook.h"
 #include "FW1FontWrapper/FW1FontWrapper.h"
+#include "INIReader.h"
 
 #pragma comment(lib, "D3dcompiler.lib")
 #pragma comment(lib, "d3d11.lib")

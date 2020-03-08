@@ -148,6 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="d3d11.cpp" />
+    <ClCompile Include="ini.cpp" />
+    <ClCompile Include="INIReader.cpp" />
     <ClCompile Include="OverlayWindow.cpp" />
     <ClCompile Include="SekiroDebug.cpp" />
     <ClCompile Include="FW1FontWrapper\CFW1ColorRGBA.cpp" />
@@ -188,9 +190,15 @@
     <MASM Include="d3d11_asm.asm">
       <FileType>Document</FileType>
     </MASM>
+    <None Include="SekiroDebug.ini">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="d3d11.h" />
+    <ClInclude Include="ini.h" />
+    <ClInclude Include="INIReader.h" />
     <ClInclude Include="OverlayWindow.h" />
     <ClInclude Include="SekiroDebug.h" />
     <ClInclude Include="FW1FontWrapper\CFW1ColorRGBA.h" />

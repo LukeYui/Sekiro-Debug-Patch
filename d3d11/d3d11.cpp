@@ -152,6 +152,7 @@ DWORD BeginMainHook() {
 
 	//Once it has, we know the encryption is gone so we can run this
 	SekiroDebug->TweakMem(0x14113DDD0, 2, pSetAlBytes);
+	SekiroDebug->GetUserPreferences();
 
 	HMODULE hDXGIDLL = 0;
 	do

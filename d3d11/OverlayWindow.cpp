@@ -38,6 +38,11 @@ _XINPUT_KEYSTROKE gamePadKeyData;
 #define GP_Dpad_Left_Repeat 22546 + XINPUT_KEYSTROKE_REPEAT
 #define GP_Dpad_Right_Repeat 22547 + XINPUT_KEYSTROKE_REPEAT
 
+#define RB 22532 + XINPUT_KEYSTROKE_KEYDOWN
+#define RB_R 22532 + 5
+#define LS 22563 + XINPUT_KEYSTROKE_KEYDOWN
+#define LS_R 22563 + XINPUT_KEYSTROKE_REPEAT
+
 /******************************\
 
 [ALL VARS BELOW ARE FOR OPTIONAL MENU]
@@ -60,6 +65,8 @@ int curMenuMax = 0;
 
 DWORD APIENTRY CreateOverlay(HINSTANCE hInstance)
 {
+	HFONT hFont = 0;
+
 	//Set Strings
 	wcscpy_s(szTitle, L"External Overlay");
 	wcscpy_s(szWindowClass, L"OVERLAYCLASS");
@@ -80,8 +87,14 @@ DWORD APIENTRY CreateOverlay(HINSTANCE hInstance)
 	//Edit Text
 	SetBkColor(windowDC, RGB(0, 0, 0));
 	SetBkMode(windowDC, TRANSPARENT);
-
 	SetTextColor(windowDC, RGB(255, 255, 255));
+
+	hFont = CreateFontW(30, 14, 0, 0, FW_DONTCARE,
+		0, 0, 0, ANSI_CHARSET,
+		OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, DRAFT_QUALITY, VARIABLE_PITCH,
+		TEXT(L"Courier New")/*"SYSTEM_FIXED_FONT"*/);
+
+	SelectObject(windowDC, hFont);
 
 	while (dllActive)
 	{
@@ -138,6 +151,7 @@ void CALLBACK OverlayCode(int iIsAutoRefresh)
 		default:
 			break;
 		}
+
 	}
 	else
 	{

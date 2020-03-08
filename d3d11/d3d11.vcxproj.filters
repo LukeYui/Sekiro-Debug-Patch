@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Overlay Window">
       <UniqueIdentifier>{34b7b29c-812d-4b02-ad7c-156ad96b9962}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\INIReader">
+      <UniqueIdentifier>{5b1643dd-5bc6-44d3-b36c-b87b506b3e34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="d3d11.cpp">
@@ -129,10 +132,19 @@
     <ClCompile Include="OverlayWindow.cpp">
       <Filter>Source Files\Overlay Window</Filter>
     </ClCompile>
+    <ClCompile Include="ini.cpp">
+      <Filter>Resource Files\INIReader</Filter>
+    </ClCompile>
+    <ClCompile Include="INIReader.cpp">
+      <Filter>Resource Files\INIReader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="d3d11.def">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="SekiroDebug.ini">
+      <Filter>Resource Files\INIReader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +236,12 @@
     </ClInclude>
     <ClInclude Include="OverlayWindow.h">
       <Filter>Source Files\Overlay Window</Filter>
+    </ClInclude>
+    <ClInclude Include="ini.h">
+      <Filter>Resource Files\INIReader</Filter>
+    </ClInclude>
+    <ClInclude Include="INIReader.h">
+      <Filter>Resource Files\INIReader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

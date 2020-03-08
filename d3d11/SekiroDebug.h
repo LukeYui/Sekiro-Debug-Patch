@@ -16,11 +16,13 @@ public:
 	virtual BOOL Hook(DWORD64 qAddress, DWORD64* pReturn, DWORD64 qDetour, DWORD dByteGap);
 	virtual BOOL Unhook(DWORD64 qAddress);
 	virtual BOOL TweakMem(DWORD64 qAddress, DWORD dSize, VOID* pBytes);
+	virtual BOOL ApplyPatches();
 	virtual BOOL CheckPackedBytes(DWORD64 qAddress, WORD wBytes);
 	virtual VOID DrawStrings(IFW1FontWrapper* pFontWrapper);
 	virtual VOID ClearStrings();
 	virtual VOID UpdateOverlayWindow(int iIsAutoUpdate);
 	virtual VOID MinimiseShelvesOptions(FLOAT* pFontSize, DWORD dY);
+	virtual VOID GetUserPreferences();
 };
 
 struct SSekiroDebug {
