@@ -14,8 +14,6 @@ BYTE pRetBytes[1] = { 0xC3 };
 BYTE pXorRaxBytes[5] = { 0x48, 0x31, 0xC0, 0x90, 0x90 };
 BYTE pSetAlBytes[5] = { 0xB0, 0x01, 0x90, 0x90, 0x90 };
 BYTE pSetR8lBytes[5] = { 0x41, 0xB0, 0x01 };
-DWORD dHMAVCheck1 = 0x00CE9840;
-DWORD dHMAVCheck2 = 0x036973AA;
 
 BYTE pFreeCamBytes1[5] = { 0xE8, 0x12, 0x54, 0xC8, 0x01 };
 BYTE pFreeCamBytes2[35] = { 0xC6, 0x05, 0xDF, 0x7A, 0x33, 0x03, 0x02, 0x8B, 0x83, 0xE0, 0x00, 0x00, 0x00, 0xFF, 0xC8, 0x83, 0xF8, 0x01, 0x0F, 0x87, 0x2C, 0x02, 0x00, 0x00, 0xC6, 0x05, 0xC7, 0x7A, 0x33, 0x03 };
@@ -54,7 +52,7 @@ BOOL CSekiroDebug::ApplyPatches() {
 		TweakMem(0x1424E4370, 1, pRetBytes) && //DebugMenu Font 
 		TweakMem(0x1424E9340, 1, pRetBytes) && //[[[143B858C0]+1D28]+70]+80 == NULL (CameraParam crash)
 		TweakMem(0x14096B650, 2, pSetAlBytes) && //GAME > INS
-		TweakMem(0x14096B640, 2, pSetAlBytes) &&
+		TweakMem(0x14096B640, 2, pSetAlBytes) && //GAME > Event
 		TweakMem(0x140831DC9, 5, pFreeCamBytes1) &&  //Attach to L3 (HOLD) + Square
 		TweakMem(0x140831E1C, 30, pFreeCamBytes2) && //Enable back freeze game feature
 		TweakMem(0x1424B71E0, 6, pNopBytes);		 //Remove useless code in gamepad check
@@ -217,7 +215,6 @@ VOID CSekiroDebug::DrawStrings(IFW1FontWrapper* pFontWrapper) {
 
 	for (int i = 0; i < MaxPrint; i++) {
 		if (DrawStruct[i].dIsActive) {
-			//TextOutW(wdc, (DWORD)DrawStruct[i].sDebugPrint.fX, (DWORD)DrawStruct[i].sDebugPrint.fY, DrawStruct[i].sDebugPrint.wcText, (int)wcslen(DrawStruct[i].sDebugPrint.wcText));
 			TextOutW(windowDC, (DWORD)DrawStruct[i].sDebugPrint.fX, (DWORD)DrawStruct[i].sDebugPrint.fY, DrawStruct[i].sDebugPrint.wcText, (int)wcslen(DrawStruct[i].sDebugPrint.wcText));
 		};
 	};
@@ -241,8 +238,6 @@ VOID CSekiroDebug::UpdateOverlayWindow(int iIsAutoUpdate) {
 };
 
 VOID CSekiroDebug::MinimiseShelvesOptions(FLOAT* pFontSize, DWORD dY) {
-
-	//I've had to manually do this bit to look slick
 
 	switch (dY) {
 	case(80): {
