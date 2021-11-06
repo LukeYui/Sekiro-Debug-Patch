@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\SekiroDebugMenu">
+      <UniqueIdentifier>{89589722-c6f9-401e-9e44-cfb24fa7c7b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SekiroDebugMenu\Hooks">
+      <UniqueIdentifier>{eb47775a-ca80-4195-ae99-a1ebffe27efa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SekiroDebugMenu\Signature">
+      <UniqueIdentifier>{5accdef9-1cae-4363-ac33-041a93ae1a0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SekiroDebugMenu\Hooks\Patches">
+      <UniqueIdentifier>{9365e56c-0d00-41b8-9c38-26843076255d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SekiroDebugMenu\Graphics">
+      <UniqueIdentifier>{a68cef23-078a-4c99-82be-cc5a83194c32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\ImGui">
+      <UniqueIdentifier>{72f5efe4-bce4-4a83-9bfb-3f662811a7b7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dinput8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SekiroDebugMenu\SekiroDebugMenu.cpp">
+      <Filter>Source Files\SekiroDebugMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MinHook\src\buffer.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MinHook\src\hook.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MinHook\src\trampoline.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MinHook\src\HDE\hde32.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MinHook\src\HDE\hde64.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SekiroDebugMenu\Hooks\Hooks.cpp">
+      <Filter>Source Files\SekiroDebugMenu\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="SekiroDebugMenu\Signature\Signature.cpp">
+      <Filter>Source Files\SekiroDebugMenu\Signature</Filter>
+    </ClCompile>
+    <ClCompile Include="SekiroDebugMenu\Hooks\Patches\Patches.cpp">
+      <Filter>Source Files\SekiroDebugMenu\Hooks\Patches</Filter>
+    </ClCompile>
+    <ClCompile Include="SekiroDebugMenu\Graphics\Graphics.cpp">
+      <Filter>Source Files\SekiroDebugMenu\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui.cpp">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_demo.cpp">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_draw.cpp">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_widgets.cpp">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\backends\imgui_impl_dx11.cpp">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\backends\imgui_impl_win32.cpp">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dinput8.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="dinput8_asm.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SekiroDebugMenu\SekiroDebugMenu.h">
+      <Filter>Source Files\SekiroDebugMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MinHook\src\buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinHook\src\trampoline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinHook\src\HDE\hde32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinHook\src\HDE\hde64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinHook\src\HDE\pstdint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinHook\src\HDE\table32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MinHook\src\HDE\table64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SekiroDebugMenu\Hooks\Hooks.h">
+      <Filter>Source Files\SekiroDebugMenu\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="SekiroDebugMenu\Signature\Signature.h">
+      <Filter>Source Files\SekiroDebugMenu\Signature</Filter>
+    </ClInclude>
+    <ClInclude Include="SekiroDebugMenu\Hooks\HookSites.h">
+      <Filter>Source Files\SekiroDebugMenu\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="SekiroDebugMenu\Hooks\Patches\Patches.h">
+      <Filter>Source Files\SekiroDebugMenu\Hooks\Patches</Filter>
+    </ClInclude>
+    <ClInclude Include="SekiroDebugMenu\Graphics\Graphics.h">
+      <Filter>Source Files\SekiroDebugMenu\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imconfig.h">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui.h">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_internal.h">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_rectpack.h">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_textedit.h">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_truetype.h">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\backends\imgui_impl_dx11.h">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\backends\imgui_impl_win32.h">
+      <Filter>Resource Files\ImGui</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

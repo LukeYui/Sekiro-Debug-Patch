@@ -1,0 +1,65 @@
+﻿  Assembling dinput8_asm.asm...
+  dinput8.cpp
+  imgui_impl_dx11.cpp
+  imgui_impl_win32.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_widgets.cpp
+  Graphics.cpp
+Z:\RE\NexusMods\Sekiro-Debug-Menu\dinput8\SekiroDebugMenu\Graphics\Graphics.cpp(157,36): warning C4244: '=': conversion from 'LONG' to 'float', possible loss of data
+Z:\RE\NexusMods\Sekiro-Debug-Menu\dinput8\SekiroDebugMenu\Graphics\Graphics.cpp(158,37): warning C4244: '=': conversion from 'LONG' to 'float', possible loss of data
+D:\Visual Studio 2019\VC\Tools\MSVC\14.29.30133\include\xstring(2575,23): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+D:\Visual Studio 2019\VC\Tools\MSVC\14.29.30133\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+D:\Visual Studio 2019\VC\Tools\MSVC\14.29.30133\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+D:\Visual Studio 2019\VC\Tools\MSVC\14.29.30133\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+D:\Visual Studio 2019\VC\Tools\MSVC\14.29.30133\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+Z:\RE\NexusMods\Sekiro-Debug-Menu\dinput8\SekiroDebugMenu\Graphics\Graphics.cpp(198): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+Z:\RE\NexusMods\Sekiro-Debug-Menu\dinput8\SekiroDebugMenu\Graphics\Graphics.cpp(198): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+  Hooks.cpp
+  Patches.cpp
+  SekiroDebugMenu.cpp
+  Signature.cpp
+  buffer.c
+  hde32.c
+  hde64.c
+  hook.c
+  trampoline.c
+     Creating library Z:\RE\NexusMods\Sekiro-Debug-Menu\x64\Release\dinput8.lib and object Z:\RE\NexusMods\Sekiro-Debug-Menu\x64\Release\dinput8.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 1165 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  dinput8.vcxproj -> Z:\RE\NexusMods\Sekiro-Debug-Menu\x64\Release\dinput8.dll

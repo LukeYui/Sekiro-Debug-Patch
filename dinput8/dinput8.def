@@ -1,0 +1,6 @@
+LIBRARY dinput8.dll
+
+EXPORTS
+
+	DirectInput8Create =_DirectInput8Create @ 1
+

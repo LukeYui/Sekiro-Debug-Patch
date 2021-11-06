@@ -1,8 +1,0 @@
-﻿  SekiroDebug.cpp
-     Creating library Z:\RE\Proofs of Concept\Sekiro Debug Menu\Sekiro-Debug-Patch\x64\Release\d3d11.lib and object Z:\RE\Proofs of Concept\Sekiro Debug Menu\Sekiro-Debug-Patch\x64\Release\d3d11.exp
-  Generating code
-  1 of 1388 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  d3d11.vcxproj -> Z:\RE\Proofs of Concept\Sekiro Debug Menu\Sekiro-Debug-Patch\x64\Release\d3d11.dll
